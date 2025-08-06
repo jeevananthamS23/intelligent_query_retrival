@@ -1,0 +1,16 @@
+fastapi
+uvicorn
+pydantic
+requests
+faiss-cpu
+python-dotenv
+langchain
+langchain-google-genai
+PyMuPDF
+pdfplumber
+pytesseract
+rank_bm25
+qdrant-client
+sentence-transformers
+asyncio
+google-generative-ai
