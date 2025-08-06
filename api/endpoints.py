@@ -25,6 +25,7 @@ class QueryRequest(BaseModel):
 class QueryResponse(BaseModel):
     answers: List[str]
 
+# ✅ POST /api/v1/hackrx/run
 @router.post("/hackrx/run", response_model=QueryResponse)
 async def run_hackrx(request: QueryRequest, token: str = Depends(verify_token)):
     # Step 1: Download and parse
@@ -37,7 +38,7 @@ async def run_hackrx(request: QueryRequest, token: str = Depends(verify_token)):
     if not clauses:
         raise HTTPException(status_code=400, detail="No clauses found in document.")
 
-    # Step 3: Answer each question concurrently using asyncio.gather
+    # Step 3: Answer each question concurrently
     try:
         results = await asyncio.gather(*[
             answer_query(q, clauses, request.documents) for q in request.questions
@@ -47,3 +48,8 @@ async def run_hackrx(request: QueryRequest, token: str = Depends(verify_token)):
         answers = ["Error: Failed to retrieve answer."] * len(request.questions)
 
     return QueryResponse(answers=answers)
+
+# ✅ Optional GET /api/v1/ask for testing
+@router.get("/ask")
+def ask_test():
+    return {"message": "Ask endpoint is live ✅"}
