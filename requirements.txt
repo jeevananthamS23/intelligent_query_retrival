@@ -13,5 +13,5 @@ rank_bm25
 qdrant-client
 sentence-transformers
 asyncio
-git+https://github.com/google/generative-ai-python.git@v0.2.2
+google-generativeai>=0.8.0,<0.9.0
 
