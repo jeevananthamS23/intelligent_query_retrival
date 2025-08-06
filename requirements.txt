@@ -13,4 +13,5 @@ rank_bm25
 qdrant-client
 sentence-transformers
 asyncio
+google-generative-ai==0.3.2
 google-generative-ai
