@@ -8,12 +8,12 @@ from services.logic import answer_query
 
 router = APIRouter()
 
-API_KEY = "714c3fdb7fd84d510e3b5d4a0e21cc85a9a323700c63fad79fcd234ea93b99d5"
+API_KEY = "Toki"
 
 def verify_token(authorization: Optional[str] = Header(None)) -> str:
-    if authorization is None or not authorization.startswith("Bearer "):
+    if authorization is None or not authorization.startswith("B "):
         raise HTTPException(status_code=401, detail="Missing or invalid authorization header")
-    token = authorization.removeprefix("Bearer ").strip()
+    token = authorization.removeprefix("B ").strip()
     if token != API_KEY:
         raise HTTPException(status_code=403, detail="Invalid API key")
     return token
