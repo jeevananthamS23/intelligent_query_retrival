@@ -16,3 +16,4 @@ asyncio
 google-generativeai>=0.8.0,<0.9.0
 tiktoken
 nltk
+validators
